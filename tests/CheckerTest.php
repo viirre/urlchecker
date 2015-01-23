@@ -27,7 +27,12 @@ class CheckerTest extends \PHPUnit_Framework_TestCase
 
 
     /**
-     * Test that a online host with a good url (eg. google.com) returns with status "online" and a 200 status code
+     * Test that a online host with a good url (eg. google.com) returns with:
+     *
+     * - status "online"
+     * - 200 status code
+     * - has a response time
+     * - has a Guzzle response object
      */
     public function testThatAGoodUrlIsRespondingOk()
     {
@@ -36,6 +41,9 @@ class CheckerTest extends \PHPUnit_Framework_TestCase
 
         $this->assertTrue($status->isRespondingOk());
         $this->assertEquals($status->getStatusCode(), 200);
+        $this->assertInternalType('double', $status->getTimeInSeconds());
+        $this->assertTrue(($status->getTimeInMilliSeconds() > 0.1));
+        $this->assertInstanceOf('GuzzleHttp\Message\Response', $status->getResponse());
     }
 
     /**
@@ -61,4 +69,5 @@ class CheckerTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($status->isRespondingOk());
         $this->assertTrue($status->hostIsUnresolvable());
     }
+
 }

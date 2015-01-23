@@ -28,10 +28,26 @@ $status = $checker->check($url);
 
 if ($status->isRespondingOk()) {
     echo "Url {$url} is responding ok, woho!";
+} elseif ($status->isResponding()) {
+    echo "Url {$url} is responding, but with status code: " . $status->getStatusCode() . " and reason for not a 200: " . $status->getReason();
+} else {
+    echo "Url {$url} is NOT responding ok, fail reason: " . $status->getReason();
 }
-else {
-    echo "Url {$url} is NOT responding ok, reason: " . $status->getReason();
-}
+```
+
+There are plenty of stuff to check about the connection, to get how long the connection took, use:
+
+``` php
+$timeInSeconds = $status->getTimeInSeconds();
+$timeInMilliSeconds = $status->getTimeInMilliSeconds();
+```
+
+And if you want to drill down further, you can access the underlying GuzzleHttp\Message\Response object to access all it's info, eg:
+``` php
+$response = $status->getResponse();
+
+// Get protocol info from the response
+$protocol = $response->getProtocolVersion();
 ```
 
 ## Testing

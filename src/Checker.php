@@ -32,32 +32,44 @@ class Checker
     {
         $this->validateUrl($url);
 
+        $response = null;
+        $statusCode = null;
+        $reason = null;
+        $unresolved = false;
+        $timeStart = microtime(true);
+
         try {
 
             $response = $this->guzzle->get($url, [
                 'timeout' => $timeout
             ]);
 
-
-            $code = $response->getStatusCode();
-
-            return new Status($url, $code, true, false);
+            $statusCode = $response->getStatusCode();
 
         } catch (ClientException $e) {
 
-            // When not a 200 status
-            return new Status($url, $e->getCode(), true, false, $e->getMessage());
+            // When not a 200 status but still responding
+            $statusCode = $e->getCode();
+            $reason = $e->getMessage();
 
         } catch (ConnectException $e) {
 
             // Unresolvable host etc
-            return new Status($url, null, false, true, $e->getMessage());
+            $reason = $e->getMessage();
+            $unresolved = true;
 
         } catch (\Exception $e) {
 
-            return new Status($url, null, false, true, $e->getMessage());
+            // Other errors
+            $reason = $e->getMessage();
+            $unresolved = true;
 
         }
+
+        $timeEnd = microtime(true);
+        $time = ($timeEnd - $timeStart); // seconds
+
+        return new UrlStatus($url, $statusCode, $time, $unresolved, $response, $reason);
     }
 
     /**
