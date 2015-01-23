@@ -3,9 +3,9 @@
 [![Latest Version](https://img.shields.io/github/release/viirre/urlchecker.svg?style=flat-square)](https://github.com/viirre/urlchecker/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/viirre/urlchecker/master.svg?style=flat-square)](https://travis-ci.org/viirre/urlchecker)
-#[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/viirre/urlchecker.svg?style=flat-square)](https://scrutinizer-ci.com/g/viirre/urlchecker/code-structure)
+<!--[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/viirre/urlchecker.svg?style=flat-square)](https://scrutinizer-ci.com/g/viirre/urlchecker/code-structure)
+[![Total Downloads](https://img.shields.io/packagist/dt/viirre/urlchecker.svg?style=flat-square)](https://packagist.org/packages/viirre/urlchecker)-->
 [![Quality Score](https://img.shields.io/scrutinizer/g/viirre/urlchecker.svg?style=flat-square)](https://scrutinizer-ci.com/g/viirre/urlchecker)
-#[![Total Downloads](https://img.shields.io/packagist/dt/viirre/urlchecker.svg?style=flat-square)](https://packagist.org/packages/viirre/urlchecker)
 
 This package let's you check the status of a URL to easily check if it's "online" or not. Uses PSR 1/2. It uses Guzzle for communicating with the URLs.
 
