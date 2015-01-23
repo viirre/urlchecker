@@ -1,6 +1,6 @@
 {
     "name": "viirre/urlchecker",
-    "description": "Checks how a URL is responding (eg. responding with status 200)",
+    "description": "Checks status of a URL (eg. responding with status 200 or why it's not responding etc)",
     "keywords": [
         "viirre",
         "urlchecker",
@@ -13,7 +13,7 @@
             "name": "Victor Schelin",
             "email": "victor@adaptivemedia.se",
             "homepage": "http://www.adaptivemedia.se",
-            "role": "CTO & Developer"
+            "role": "CTO"
         }
     ],
     "require": {

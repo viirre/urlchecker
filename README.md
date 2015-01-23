@@ -7,7 +7,7 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/viirre/urlchecker.svg?style=flat-square)](https://scrutinizer-ci.com/g/viirre/urlchecker)
 [![Total Downloads](https://img.shields.io/packagist/dt/viirre/urlchecker.svg?style=flat-square)](https://packagist.org/packages/viirre/urlchecker)
 
-This package let's you check the status of a URL to easily check if it's "online" or not. Uses PSR1/2.
+This package let's you check the status of a URL to easily check if it's "online" or not. Uses PSR 1/2. It uses Guzzle for communicating with the URLs.
 
 ## Install
 
@@ -20,6 +20,8 @@ $ composer require viirre/urlchecker
 ## Usage
 
 ``` php
+require_once 'vendor/autoload.php';
+
 $url = 'http://www.google.com';
 $checker = new \Viirre\UrlChecker\Checker();
 $status = $checker->check($url);
