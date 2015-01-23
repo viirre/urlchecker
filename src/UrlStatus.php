@@ -53,7 +53,7 @@ class UrlStatus {
      * @param int|null $statusCode
      * @param double $time in seconds
      * @param bool $unresolvableHost
-     * @param GuzzleHttp\Message\Response|null $response
+     * @param \GuzzleHttp\Message\Response|null $response
      * @param string|null $reason
      */
     public function __construct($url, $statusCode, $time, $unresolvableHost, $response = null, $reason = null)
