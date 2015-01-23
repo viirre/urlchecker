@@ -25,10 +25,10 @@ class Checker
      * Perform the check of a URL
      *
      * @param string $url URL to check
-     * @param int $timeout timeout for the request. Defaults to 3 seconds
+     * @param int $timeout timeout for the request. Defaults to 5 seconds
      * @return Status
      */
-    public function check($url, $timeout = 3)
+    public function check($url, $timeout = 5)
     {
         $this->validateUrl($url);
 

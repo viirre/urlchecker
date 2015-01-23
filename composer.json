@@ -1,6 +1,6 @@
 {
     "name": "viirre/urlchecker",
-    "description": "Checks status of a URL (eg. responding with status 200 or why it's not responding etc)",
+    "description": "Simple utility package to check the status of a URL (status code, response time etc).",
     "keywords": [
         "viirre",
         "urlchecker",
