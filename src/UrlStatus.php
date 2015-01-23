@@ -35,7 +35,7 @@ class UrlStatus {
     /**
      * The Guzzle response object (if successful connection)
      *
-     * @var GuzzleHttp\Message\Response|null
+     * @var \GuzzleHttp\Message\Response|null
      */
     protected $response;
 
