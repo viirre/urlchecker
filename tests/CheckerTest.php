@@ -54,7 +54,7 @@ class CheckerTest extends \PHPUnit_Framework_TestCase
         $url = 'http://www.google.com/ughhhh.htm';
         $status = $this->checker->check($url);
 
-        $this->assertTrue($status->isResponding());
+        $this->assertTrue($status->isRespondingButNotOk());
         $this->assertNotEquals($status->getStatusCode(), 200);
     }
 
@@ -70,4 +70,16 @@ class CheckerTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($status->hostIsUnresolvable());
     }
 
+    /**
+     * Test that a we can get the underlying Guzzle response
+     */
+    public function testThatItHasTheUnderlyingGuzzleResponse()
+    {
+        $url = 'http://www.google.com';
+        $status = $this->checker->check($url);
+        $response = $status->getResponse();
+        $statusCodeFromGuzzle = $response->getStatusCode();
+
+        $this->assertEquals(3, strlen($statusCodeFromGuzzle));
+    }
 }

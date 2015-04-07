@@ -13,13 +13,13 @@ This package let's you check the status of a URL to easily check if it's "online
 
 Via Composer
 
-``` bash
+```bash
 $ composer require viirre/urlchecker
 ```
 
 ## Usage
 
-``` php
+```php
 require_once 'vendor/autoload.php';
 
 $url = 'http://www.google.com';
@@ -37,22 +37,23 @@ if ($status->isRespondingOk()) {
 
 There are plenty of stuff to check about the connection, to get how long the connection took, use:
 
-``` php
+```php
 $timeInSeconds = $status->getTimeInSeconds();
 $timeInMilliSeconds = $status->getTimeInMilliSeconds();
 ```
 
 And if you want to drill down further, you can access the underlying GuzzleHttp\Message\Response object to access all it's info, eg:
-``` php
+```php
 $response = $status->getResponse();
 
 // Get protocol info from the response
 $protocol = $response->getProtocolVersion();
 ```
 
+Checkout the Guzzle Response class with all the available functions at [Guzzles API](http://api.guzzlephp.org/class-Guzzle.Http.Message.Response.html)
 ## Testing
 
-``` bash
+```bash
 $ phpunit
 ```
 

@@ -78,11 +78,11 @@ class UrlStatus {
 
 
     /**
-     * Return if the URL is responding at all
+     * Return if the URL is responding but not with a 200 status code
      *
      * @return bool
      */
-    public function isResponding()
+    public function isRespondingButNotOk()
     {
         return ! $this->unresolvableHost;
     }
