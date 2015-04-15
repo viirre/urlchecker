@@ -84,7 +84,7 @@ class UrlStatus {
      */
     public function isRespondingButNotOk()
     {
-        return ! $this->unresolvableHost;
+        return ! $this->isRespondingOk() && ! $this->unresolvableHost;
     }
 
     /**
