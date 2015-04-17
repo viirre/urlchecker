@@ -30,7 +30,7 @@ if ($status->isRespondingOk()) {
     echo "Url {$url} is responding ok, woho!";
 } elseif ($status->isRespondingButNotOk()) {
     echo "Url {$url} is responding, but with status code: " . $status->getStatusCode() . " and reason for not a 200: " . $status->getReason();
-} else {
+} elseif ($status->isNotResponding()) {
     echo "Url {$url} is NOT responding ok, fail reason: " . $status->getReason();
 }
 ```

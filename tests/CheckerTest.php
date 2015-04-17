@@ -68,6 +68,7 @@ class CheckerTest extends \PHPUnit_Framework_TestCase
 
         $this->assertFalse($status->isRespondingOk());
         $this->assertTrue($status->hostIsUnresolvable());
+        $this->assertTrue($status->isNotResponding());
     }
 
     /**

@@ -88,6 +88,16 @@ class UrlStatus {
     }
 
     /**
+     * Return if the URL is not responding at all
+     *
+     * @return bool
+     */
+    public function isNotResponding()
+    {
+        return $this->hostIsUnresolvable();
+    }
+
+    /**
      * Return if the URL's host is unresolvable
      *
      * @return bool
