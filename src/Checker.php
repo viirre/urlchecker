@@ -14,7 +14,7 @@ class Checker
     protected $guzzle;
 
     /**
-     * Create a new Instance
+     * Create a new Instance.
      */
     public function __construct()
     {
@@ -22,10 +22,11 @@ class Checker
     }
 
     /**
-     * Perform the check of a URL
+     * Perform the check of a URL.
      *
-     * @param string $url URL to check
-     * @param int $timeout timeout for the request. Defaults to 5 seconds
+     * @param string $url     URL to check
+     * @param int    $timeout timeout for the request. Defaults to 5 seconds
+     *
      * @return Status
      */
     public function check($url, $timeout = 5)
@@ -39,31 +40,26 @@ class Checker
         $timeStart = microtime(true);
 
         try {
-
             $response = $this->guzzle->get($url, [
-                'timeout' => $timeout
+                'timeout' => $timeout,
             ]);
 
             $statusCode = $response->getStatusCode();
-
         } catch (ClientException $e) {
 
             // When not a 200 status but still responding
             $statusCode = $e->getCode();
             $reason = $e->getMessage();
-
         } catch (ConnectException $e) {
 
             // Unresolvable host etc
             $reason = $e->getMessage();
             $unresolved = true;
-
         } catch (\Exception $e) {
 
             // Other errors
             $reason = $e->getMessage();
             $unresolved = true;
-
         }
 
         $timeEnd = microtime(true);
@@ -73,9 +69,10 @@ class Checker
     }
 
     /**
-     * Validate that a url is a valid url
+     * Validate that a url is a valid url.
      *
      * @param string $url
+     *
      * @throws UrlMalformedException
      */
     private function validateUrl($url)

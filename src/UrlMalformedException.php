@@ -4,6 +4,6 @@ namespace Viirre\UrlChecker;
 
 use Exception;
 
-class UrlMalformedException extends Exception {
-
+class UrlMalformedException extends Exception
+{
 }

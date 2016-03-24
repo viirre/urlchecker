@@ -2,59 +2,59 @@
 
 namespace Viirre\UrlChecker;
 
-class UrlStatus {
-
+class UrlStatus
+{
     /**
-     * Url to check
+     * Url to check.
      *
      * @var string
      */
     protected $url;
 
     /**
-     * Status code returned, if URL is responding
+     * Status code returned, if URL is responding.
      *
      * @var int|null
      */
     protected $statusCode;
 
     /**
-     * Reason for when URL is not responding with 200 status code
+     * Reason for when URL is not responding with 200 status code.
      *
      * @var string|null
      */
     protected $reason;
 
     /**
-     * If the url's host is unresolvable
+     * If the url's host is unresolvable.
      *
      * @var bool
      */
     protected $unresolvableHost;
 
     /**
-     * The Guzzle response object (if successful connection)
+     * The Guzzle response object (if successful connection).
      *
      * @var \GuzzleHttp\Message\Response|null
      */
     protected $response;
 
     /**
-     * Time it took for the request in seconds
+     * Time it took for the request in seconds.
      *
-     * @var double
+     * @var float
      */
     protected $time;
 
     /**
-     * Create an instance of an UrlStatus
+     * Create an instance of an UrlStatus.
      *
-     * @param string $url
-     * @param int|null $statusCode
-     * @param double $time in seconds
-     * @param bool $unresolvableHost
+     * @param string                            $url
+     * @param int|null                          $statusCode
+     * @param float                             $time             in seconds
+     * @param bool                              $unresolvableHost
      * @param \GuzzleHttp\Message\Response|null $response
-     * @param string|null $reason
+     * @param string|null                       $reason
      */
     public function __construct($url, $statusCode, $time, $unresolvableHost, $response = null, $reason = null)
     {
@@ -67,7 +67,7 @@ class UrlStatus {
     }
 
     /**
-     * Return if the URL is responding with a 200 status
+     * Return if the URL is responding with a 200 status.
      *
      * @return bool
      */
@@ -76,9 +76,8 @@ class UrlStatus {
         return $this->statusCode == 200;
     }
 
-
     /**
-     * Return if the URL is responding but not with a 200 status code
+     * Return if the URL is responding but not with a 200 status code.
      *
      * @return bool
      */
@@ -88,7 +87,7 @@ class UrlStatus {
     }
 
     /**
-     * Return if the URL is not responding at all
+     * Return if the URL is not responding at all.
      *
      * @return bool
      */
@@ -98,7 +97,7 @@ class UrlStatus {
     }
 
     /**
-     * Return if the URL's host is unresolvable
+     * Return if the URL's host is unresolvable.
      *
      * @return bool
      */
@@ -108,7 +107,7 @@ class UrlStatus {
     }
 
     /**
-     * Get the status code returned (if successful connection)
+     * Get the status code returned (if successful connection).
      *
      * @return int|null
      */
@@ -118,7 +117,7 @@ class UrlStatus {
     }
 
     /**
-     * Get the URL
+     * Get the URL.
      *
      * @return string
      */
@@ -128,7 +127,7 @@ class UrlStatus {
     }
 
     /**
-     * Get the reason if connection was unsuccessful
+     * Get the reason if connection was unsuccessful.
      *
      * @return string|null
      */
@@ -138,20 +137,19 @@ class UrlStatus {
     }
 
     /**
-     * Get the time it took for the request to complete (in seconds)
+     * Get the time it took for the request to complete (in seconds).
      *
-     * @return double
+     * @return float
      */
     public function getTimeInSeconds()
     {
         return $this->time;
     }
 
-
     /**
-     * Get the time it took for the request to complete (in milliseconds)
+     * Get the time it took for the request to complete (in milliseconds).
      *
-     * @return double
+     * @return float
      */
     public function getTimeInMilliSeconds()
     {
@@ -159,7 +157,7 @@ class UrlStatus {
     }
 
     /**
-     * Get the Guzzle response object (if successful connection)
+     * Get the Guzzle response object (if successful connection).
      *
      * @return null|GuzzleHttp\Message\Response
      */
@@ -167,6 +165,4 @@ class UrlStatus {
     {
         return $this->response;
     }
-
-
-} 
+}

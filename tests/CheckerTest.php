@@ -6,7 +6,6 @@ use Viirre\UrlChecker\Checker;
 
 class CheckerTest extends \PHPUnit_Framework_TestCase
 {
-
     protected $checker;
 
     public function setUp()
@@ -15,7 +14,7 @@ class CheckerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test that it throws an exception if url is malformed
+     * Test that it throws an exception if url is malformed.
      *
      * @expectedException Viirre\UrlChecker\UrlMalformedException
      */
@@ -25,9 +24,8 @@ class CheckerTest extends \PHPUnit_Framework_TestCase
         $this->checker->check($url);
     }
 
-
     /**
-     * Test that a online host with a good url (eg. google.com) returns with:
+     * Test that a online host with a good url (eg. google.com) returns with:.
      *
      * - status "online"
      * - 200 status code
@@ -47,7 +45,7 @@ class CheckerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test that a online host with a malformed url (eg. google.com/uuuuuh.html) returns with status code other than 200 but is still "responding"
+     * Test that a online host with a malformed url (eg. google.com/uuuuuh.html) returns with status code other than 200 but is still "responding".
      */
     public function testThatAOnlineHostWithBadUrlReturnsNotA200()
     {
@@ -59,7 +57,7 @@ class CheckerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test that a fake host returns a Status with "not online"
+     * Test that a fake host returns a Status with "not online".
      */
     public function testThatItReturnsOfflineForanUnresolvedHost()
     {
@@ -72,7 +70,7 @@ class CheckerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test that a we can get the underlying Guzzle response
+     * Test that a we can get the underlying Guzzle response.
      */
     public function testThatItHasTheUnderlyingGuzzleResponse()
     {
