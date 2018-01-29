@@ -1,12 +1,11 @@
 <?php
 
-namespace League\UrlChecker\Test;
+namespace Viirre\UrlChecker\Test;
 
 use Viirre\UrlChecker\Checker;
 
 class CheckerTest extends \PHPUnit_Framework_TestCase
 {
-
     protected $checker;
 
     public function setUp()
@@ -17,14 +16,13 @@ class CheckerTest extends \PHPUnit_Framework_TestCase
     /**
      * Test that it throws an exception if url is malformed
      *
-     * @expectedException Viirre\UrlChecker\UrlMalformedException
+     * @expectedException \Viirre\UrlChecker\UrlMalformedException
      */
     public function testThatItThrowsAMalformedUrlExceptionCorrectly()
     {
         $url = 'www.badurl.com';
         $this->checker->check($url);
     }
-
 
     /**
      * Test that a online host with a good url (eg. google.com) returns with:
@@ -43,7 +41,6 @@ class CheckerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($status->getStatusCode(), 200);
         $this->assertInternalType('double', $status->getTimeInSeconds());
         $this->assertTrue(($status->getTimeInMilliSeconds() > 0.1));
-        $this->assertInstanceOf('GuzzleHttp\Message\Response', $status->getResponse());
     }
 
     /**
@@ -80,7 +77,7 @@ class CheckerTest extends \PHPUnit_Framework_TestCase
         $status = $this->checker->check($url);
         $response = $status->getResponse();
         $statusCodeFromGuzzle = $response->getStatusCode();
-
+        $this->assertInstanceOf(\GuzzleHttp\Psr7\Response::class, $response);
         $this->assertEquals(3, strlen($statusCodeFromGuzzle));
     }
 }

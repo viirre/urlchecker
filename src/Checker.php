@@ -26,7 +26,8 @@ class Checker
      *
      * @param string $url URL to check
      * @param int $timeout timeout for the request. Defaults to 5 seconds
-     * @return Status
+     * @return UrlStatus
+     * @throws UrlMalformedException
      */
     public function check($url, $timeout = 5)
     {
