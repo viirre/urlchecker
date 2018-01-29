@@ -2,10 +2,10 @@
 
 namespace Viirre\UrlChecker\Test;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Viirre\UrlChecker\Checker;
 
-class CheckerTest extends PHPUnit_Framework_TestCase
+class CheckerTest extends TestCase
 {
     protected $checker;
 
